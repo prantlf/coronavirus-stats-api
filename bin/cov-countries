@@ -2,7 +2,7 @@
 
 const { checkCountry, createRange } = require('../lib/checks')
 const { handleRequest } = require('../lib/handler')
-const { printOutput } = require('../lib/format')
+const { printOutput } = require('../lib/formatter')
 
 let output
 try {
