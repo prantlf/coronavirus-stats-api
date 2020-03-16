@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const { getLastLog } = require('../lib/database/engine')
 const { ensureDatabase } = require('../lib/database')
 const { updateAll } = require('../lib/updater')
+const { getLastLog } = require('../lib/database/engine')
 
 async function main () {
   ensureDatabase()
