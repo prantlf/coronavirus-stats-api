@@ -2,7 +2,7 @@
 
 const { getLastLog } = require('../lib/database/engine')
 const { ensureDatabase } = require('../lib/database')
-const { updateAll } = require('../lib/update')
+const { updateAll } = require('../lib/updater')
 
 async function main () {
   ensureDatabase()
@@ -12,4 +12,5 @@ async function main () {
 main().catch(error => {
   const lastLog = getLastLog()
   process.stderr.write(`${lastLog}\n${error.message}\n`)
+  process.exit(3)
 })

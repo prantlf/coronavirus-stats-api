@@ -1,13 +1,5 @@
-const polkadot = require('polkadot')
-const send = require('@polka/send-type')
-const { handleRequest } = require('./lib/handler')
+#!/usr/bin/env node
 
-const app = polkadot(async (req, res) => {
-  const { status, result } = handleRequest(req)
-  send(res, status || 200, result)
-})
+const { serveApi } = require('../lib/server')
 
-const port = +(process.env.PORT || 3000)
-app.listen(port, '0.0.0.0', error => {
-  if (error) throw error
-})
+serveApi()

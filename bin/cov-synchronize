@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const { ensureDatabase } = require('../lib/database')
-const { updateAll } = require('../lib/update')
+const { synchronizeData } = require('../lib/synchronizer')
 
-ensureDatabase()
-setInterval(updateAll, 60 * 60 * 1000)
+synchronizeData()
