@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const { getLastLog } = require('../lib/database/engine')
+const { ensureDatabase } = require('../lib/database')
+const { updateAll } = require('../lib/update')
+
+async function main () {
+  ensureDatabase()
+  await updateAll()
+}
+
+main().catch(error => {
+  const lastLog = getLastLog()
+  process.stderr.write(`${lastLog}\n${error.message}\n`)
+})

@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+const { checkCountry, createRange } = require('../lib/checks')
+const { handleRequest } = require('../lib/handler')
+const { printOutput } = require('../lib/format')
+
+let output
+try {
+  const country = process.argv[2]
+  checkCountry(country)
+  const range = createRange(process.argv, 3)
+  output = handleRequest({
+    path: '/countries',
+    query: { country, ...range }
+  })
+} catch (error) {
+  output = {
+    status: 400,
+    error: error.message
+  }
+}
+printOutput(output)

@@ -1,0 +1,30 @@
+{
+  "name": "corona-virus-stats",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk/)",
+  "license": "MIT",
+  "keywords": [
+    "coronavirus", "api"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "bin", "lib", "data/countries.json", "data/excluded-countries.json"
+  ],
+  "scripts": {
+    "start": "./bin/cov-start",
+    "test": "standard --fix 'lib/**/*.js' 'bin/*' && jsonlint -q data/*.json"
+  },
+  "dependencies": {
+    "@polka/send-type": "0.5.2",
+    "better-sqlite3": "6.0.1",
+    "cheerio": "1.0.0-rc.3",
+    "cors": "2.8.5",
+    "httpie": "1.1.2",
+    "polkadot": "1.0.0"
+  },
+  "devDependencies": {
+    "@prantlf/jsonlint": "10.2.0",
+    "standard": "14.3.2"
+  }
+}

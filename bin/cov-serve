@@ -1,0 +1,13 @@
+const polkadot = require('polkadot')
+const send = require('@polka/send-type')
+const { handleRequest } = require('./lib/handler')
+
+const app = polkadot(async (req, res) => {
+  const { status, result } = handleRequest(req)
+  send(res, status || 200, result)
+})
+
+const port = +(process.env.PORT || 3000)
+app.listen(port, '0.0.0.0', error => {
+  if (error) throw error
+})

@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const { createRange } = require('../lib/checks')
+const { handleRequest } = require('../lib/handler')
+const { printOutput } = require('../lib/format')
+
+const range = createRange(process.argv, 2)
+const output = handleRequest({
+  path: '/world',
+  query: range
+})
+printOutput(output)
