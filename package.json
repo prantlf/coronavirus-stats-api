@@ -5,11 +5,15 @@
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk/)",
   "license": "MIT",
   "keywords": [
-    "coronavirus", "api"
+    "coronavirus",
+    "api"
   ],
   "main": "lib/index.js",
   "files": [
-    "bin", "lib", "data/countries.json", "data/excluded-countries.json"
+    "bin",
+    "lib",
+    "data/countries.json",
+    "data/excluded-countries.json"
   ],
   "scripts": {
     "start": "./bin/cov-start",
@@ -25,6 +29,6 @@
   },
   "devDependencies": {
     "@prantlf/jsonlint": "10.2.0",
-    "standard": "14.3.2"
+    "standard": "14.3.3"
   }
 }
