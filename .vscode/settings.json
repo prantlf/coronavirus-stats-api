@@ -3,6 +3,7 @@
     "**/.git": true,
     "**/.DS_Store": true,
     "**/data/data.db": true,
+    "**/data/data.json": true,
     "**/data/main.html": true,
     "**/node_modules": true,
     "**/package-lock.json": true,

@@ -17,10 +17,11 @@
   ],
   "scripts": {
     "start": "./bin/cov-start",
-    "test": "standard --fix 'lib/**/*.js' 'bin/*' && jsonlint -q data/*.json"
+    "test": "standard --fix 'lib/**/*.js' 'bin/*' && yamllint data/*.yml"
   },
   "dependencies": {
     "@polka/send-type": "0.5.2",
+    "@prantlf/get-stdin-with-tty": "6.0.1",
     "better-sqlite3": "6.0.1",
     "cheerio": "1.0.0-rc.3",
     "cors": "2.8.5",
@@ -29,7 +30,7 @@
     "polkadot": "1.0.0"
   },
   "devDependencies": {
-    "@prantlf/jsonlint": "10.2.0",
-    "standard": "14.3.3"
+    "standard": "14.3.3",
+    "yaml-lint": "1.2.4"
   }
 }
