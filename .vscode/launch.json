@@ -7,20 +7,20 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "get-world",
+      "name": "world",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bin/get-world"
+      "program": "${workspaceFolder}/bin/cov-world"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "get-countries",
+      "name": "countries",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bin/get-countries"
+      "program": "${workspaceFolder}/bin/cov-countries"
     },
     {
       "type": "node",
@@ -29,16 +29,16 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bin/update"
+      "program": "${workspaceFolder}/bin/cov-update"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "server",
+      "name": "serve",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/server.js"
+      "program": "${workspaceFolder}/bin/cov-serve"
     }
   ]
 }
