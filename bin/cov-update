@@ -2,7 +2,7 @@
 
 const { ensureDatabase } = require('../lib/database')
 const { updateAll } = require('../lib/updater')
-const { getLastLog } = require('../lib/database/engine')
+const { getLastStatement } = require('../lib/database/engine')
 const { ensureCountries } = require('../lib/countries')
 
 async function main () {
@@ -11,7 +11,7 @@ async function main () {
 }
 
 main().catch(error => {
-  const lastLog = getLastLog()
-  process.stderr.write(`${lastLog}\n${error.message}\n`)
+  const lastStatement = getLastStatement()
+  process.stderr.write(`${lastStatement}\n${error.message}\n`)
   process.exit(3)
 })

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const { synchronizeData } = require('../lib/synchronizer')
-const { getLastLog } = require('../lib/database/engine')
+const { getLastStatement } = require('../lib/database/engine')
 
 synchronizeData().catch(error => {
-  const lastLog = getLastLog()
-  process.stderr.write(`${lastLog}\n${error.message}\n`)
+  const lastStatement = getLastStatement()
+  process.stderr.write(`${lastStatement}\n${error.message}\n`)
   process.exit(3)
 })
