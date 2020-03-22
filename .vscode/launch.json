@@ -11,7 +11,10 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bin/cov-world"
+      "program": "${workspaceFolder}/bin/cov-world",
+      "env": {
+        "DATABASE_TYPE": "sqlite"
+      }
     },
     {
       "type": "node",
@@ -30,6 +33,33 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/bin/cov-update"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "clear",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/cov-clear",
+      "env": {
+        "DATABASE_TYPE": "mysqlx"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "import",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/cov-import",
+      "args": [
+        "data/data.json"
+      ],
+      "env": {
+        "DATABASE_TYPE": "mysqlx"
+      }
     },
     {
       "type": "node",
