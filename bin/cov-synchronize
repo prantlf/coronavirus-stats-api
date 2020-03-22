@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 
-const { synchronizeData } = require('../lib/synchronizer')
-const { getLastStatement } = require('../lib/database/engine')
+const { startSynchronization } = require('../lib/synchronizer')
+const { printError } = require('../lib/formatter')
 
-synchronizeData().catch(error => {
-  const lastStatement = getLastStatement()
-  process.stderr.write(`${lastStatement}\n${error.message}\n`)
-  process.exit(3)
-})
+startSynchronization().catch(error => printError(error))

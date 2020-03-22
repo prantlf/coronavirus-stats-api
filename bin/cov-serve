@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-const { serveApi } = require('../lib/server')
+const { startServer } = require('../lib/server')
+const { printError } = require('../lib/formatter')
 
-serveApi().catch(({ message }) => {
-  process.stderr.write(`${message}\n`)
-  process.exit(3)
-})
+startServer().catch(error => printError(error))
