@@ -1,2 +1,1 @@
-web: ./bin/cov-serve
-worker: ./bin/cov-synchronize
+web: ./bin/cov-start
