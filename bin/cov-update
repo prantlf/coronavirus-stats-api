@@ -3,9 +3,10 @@
 const { ensureDatabase } = require('../lib/database')
 const { updateAll } = require('../lib/updater')
 const { getLastLog } = require('../lib/database/engine')
+const { ensureCountries } = require('../lib/countries')
 
 async function main () {
-  ensureDatabase()
+  await Promise.all([ensureDatabase(), ensureCountries()])
   await updateAll()
 }
 

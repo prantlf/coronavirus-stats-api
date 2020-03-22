@@ -3,20 +3,23 @@
 const { checkCountry, createRange } = require('../lib/checks')
 const { handleRequest } = require('../lib/handler')
 const { printOutput } = require('../lib/formatter')
+const { getLastLog } = require('../lib/database/engine')
+const { ensureCountries } = require('../lib/countries')
 
-let output
-try {
+async function main () {
+  await ensureCountries()
   const country = process.argv[2]
   checkCountry(country)
   const range = createRange(process.argv, 3)
-  output = handleRequest({
+  output = await handleRequest({
     path: '/countries',
     query: { country, ...range }
   })
-} catch (error) {
-  output = {
-    status: 400,
-    error: error.message
-  }
+  printOutput(output)
 }
-printOutput(output)
+
+main().catch(error => {
+  const lastLog = getLastLog()
+  process.stderr.write(`${lastLog}\n${error.message}\n`)
+  process.exit(3)
+})

@@ -2,4 +2,7 @@
 
 const { serveApi } = require('../lib/server')
 
-serveApi()
+serveApi().catch(({ message }) => {
+  process.stderr.write(`${message}\n`)
+  process.exit(3)
+})

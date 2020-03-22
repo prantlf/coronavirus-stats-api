@@ -3,10 +3,19 @@
 const { createRange } = require('../lib/checks')
 const { handleRequest } = require('../lib/handler')
 const { printOutput } = require('../lib/formatter')
+const { getLastLog } = require('../lib/database/engine')
 
-const range = createRange(process.argv, 2)
-const output = handleRequest({
-  path: '/world',
-  query: range
+async function main () {
+  const range = createRange(process.argv, 2)
+  const output = await handleRequest({
+    path: '/world',
+    query: range
+  })
+  printOutput(output)
+}
+
+main().catch(error => {
+  const lastLog = getLastLog()
+  process.stderr.write(`${lastLog}\n${error.message}\n`)
+  process.exit(3)
 })
-printOutput(output)
