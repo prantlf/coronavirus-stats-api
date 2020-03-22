@@ -6,6 +6,9 @@
   "license": "MIT",
   "keywords": [
     "coronavirus",
+    "database",
+    "restapi",
+    "rest-api",
     "api"
   ],
   "main": "lib/index.js",

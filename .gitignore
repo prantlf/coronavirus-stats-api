@@ -3,5 +3,5 @@
 data/data.db
 data/data.json
 data/main.html
-node_modules/
+node_modules
 npm-debug.log
