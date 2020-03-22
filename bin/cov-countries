@@ -4,6 +4,7 @@ const { checkCountry, createRange } = require('../lib/checks')
 const { handleRequest } = require('../lib/handler')
 const { printResult, printError } = require('../lib/formatter')
 const { ensureCountries } = require('../lib/countries')
+const { disconnectDatabase } = require('../lib/database')
 
 async function main () {
   await ensureCountries()
@@ -17,4 +18,6 @@ async function main () {
   printResult(output)
 }
 
-main().catch(error => printError(error))
+main()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())

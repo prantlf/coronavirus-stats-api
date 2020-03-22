@@ -2,6 +2,7 @@
 
 const { exportAll, exportAllToFile } = require('../lib/exporter')
 const { printError } = require('../lib/formatter')
+const { disconnectDatabase } = require('../lib/database')
 
 async function main () {
   const file = process.argv[2]
@@ -16,4 +17,6 @@ async function main () {
   }
 }
 
-main().catch(error => printError(error))
+main()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())

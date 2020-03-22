@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { ensureDatabase } = require('../lib/database')
+const { ensureDatabase, disconnectDatabase } = require('../lib/database')
 const { updateAll } = require('../lib/updater')
 const { ensureCountries } = require('../lib/countries')
 const { printError } = require('../lib/formatter')
@@ -10,4 +10,6 @@ async function main () {
   await updateAll()
 }
 
-main().catch(error => printError(error))
+main()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())

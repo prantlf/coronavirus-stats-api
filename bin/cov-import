@@ -2,6 +2,7 @@
 
 const { importAll, importAllFromFile } = require('../lib/importer')
 const { printError } = require('../lib/formatter')
+const { disconnectDatabase } = require('../lib/database')
 const slurpStdin = require('@prantlf/get-stdin-with-tty')
 
 async function main () {
@@ -17,4 +18,6 @@ async function main () {
   }
 }
 
-main().catch(error => printError(error))
+main()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())

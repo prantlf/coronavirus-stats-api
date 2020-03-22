@@ -3,6 +3,7 @@
 const { createRange } = require('../lib/checks')
 const { handleRequest } = require('../lib/handler')
 const { printResult, printError } = require('../lib/formatter')
+const { disconnectDatabase } = require('../lib/database')
 
 async function main () {
   const range = createRange(process.argv, 2)
@@ -13,4 +14,6 @@ async function main () {
   printResult(output)
 }
 
-main().catch(error => printError(error))
+main()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())

@@ -3,4 +3,5 @@
 const { startSynchronization } = require('../lib/synchronizer')
 const { printError } = require('../lib/formatter')
 
-startSynchronization().catch(error => printError(error))
+startSynchronization()
+  .catch(error => printError(error))
