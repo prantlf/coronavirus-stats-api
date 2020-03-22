@@ -4,6 +4,5 @@ const { startSynchronization } = require('../lib/synchronizer')
 const { startServer } = require('../lib/server')
 const { printError } = require('../lib/formatter')
 
-startSynchronization()
-  .then(() => startServer())
+Promise.all([startSynchronization(), startServer()])
   .catch(error => printError(error))
