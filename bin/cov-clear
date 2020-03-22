@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const { clearDatabase, disconnectDatabase } = require('../lib/database')
+const { printError } = require('../lib/formatter')
+
+clearDatabase()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())
