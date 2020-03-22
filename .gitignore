@@ -1,4 +1,5 @@
 .DS_Store
+.env
 data/data.db
 data/data.json
 data/main.html
