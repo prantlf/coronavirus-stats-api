@@ -16,7 +16,7 @@ h1 {
 }
 
 #chart {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 130px);
   width: calc(100vw - 50px);
   margin-top: 10px;
 }
@@ -43,6 +43,8 @@ h1 {
   fill: var(--text-color);
 }
 
-#chart > div > table {
-  width: calc(100vw - 20px);
+@media screen and (max-width: 640px) {
+  #chart {
+    height: calc(100vh - 170px);
+  }
 }
