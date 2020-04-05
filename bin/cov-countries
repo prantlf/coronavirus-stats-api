@@ -12,7 +12,7 @@ async function main () {
   checkCountry(country)
   const range = createRange(process.argv, 3)
   const output = await handleRequest({
-    path: '/countries',
+    path: '/api/countries',
     query: { country, ...range }
   })
   printResult(output)

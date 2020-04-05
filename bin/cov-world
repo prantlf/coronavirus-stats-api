@@ -8,7 +8,7 @@ const { disconnectDatabase } = require('../lib/database')
 async function main () {
   const range = createRange(process.argv, 2)
   const output = await handleRequest({
-    path: '/world',
+    path: '/api/world',
     query: range
   })
   printResult(output)

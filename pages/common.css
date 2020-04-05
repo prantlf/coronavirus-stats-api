@@ -1,0 +1,48 @@
+:root {
+  --text-color: rgba(0,0,0,.7);
+  --smaller-text-size: .75rem;
+  --bigger-text-size: .85rem;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--text-color);
+  font-size: var(--bigger-text-size);
+}
+
+h1 {
+  margin: 10px;
+  text-align: center;
+}
+
+#chart {
+  height: calc(100vh - 120px);
+  width: calc(100vw - 50px);
+  margin-top: 10px;
+}
+
+#chart.error {
+  color: red;
+}
+
+.chartist-tooltip {
+  font-size: var(--smaller-text-size);
+}
+
+.thin-points .ct-point {
+  stroke-width: 4px;
+}
+
+.ct-label {
+  fill: var(--text-color);
+  color: var(--text-color);
+  font-size: var(--smaller-text-size);
+}
+
+.ct-axis-title {
+  fill: var(--text-color);
+}
+
+#chart > div > table {
+  width: calc(100vw - 20px);
+}

@@ -9,3 +9,7 @@ new-exclusions ::
 	git a data/excluded-countries.yml
 	git c -m 'Add new excluded countries'
 	git push github master && git push
+
+push ::
+	npm test
+	git push github master && git push

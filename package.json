@@ -1,7 +1,7 @@
 {
   "name": "coronavirus-stats-api",
   "version": "1.0.0",
-  "description": "Database and REST API for statistics of coronavirus cases.",
+  "description": "Database, REST API and web pages with statistics of the coronavirus COVID-19 cases.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk/)",
   "license": "MIT",
   "keywords": [
@@ -15,11 +15,10 @@
   "files": [
     "bin",
     "lib",
-    "data/countries.json",
-    "data/excluded-countries.json"
+    "data/countries.yml",
+    "data/excluded-countries.yml"
   ],
   "scripts": {
-    "start": "./bin/cov-start",
     "test": "standard --fix 'lib/**/*.js' 'bin/*' && yamllint data/*.yml"
   },
   "dependencies": {
@@ -27,12 +26,13 @@
     "@prantlf/get-stdin-with-tty": "6.0.1",
     "better-sqlite3": "6.0.1",
     "cheerio": "1.0.0-rc.3",
-    "cors": "2.8.5",
     "dotenv": "8.2.0",
     "httpie": "1.1.2",
     "js-yaml": "3.13.1",
+    "make-dir": "3.0.2",
     "mysql2": "2.1.0",
-    "polkadot": "1.0.0"
+    "polkadot": "1.0.0",
+    "send": "0.17.1"
   },
   "devDependencies": {
     "standard": "14.3.3",
