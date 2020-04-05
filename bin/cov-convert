@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const { convertAll } = require('../lib/converter')
+const { printError } = require('../lib/formatter')
+const { disconnectDatabase } = require('../lib/database')
+
+convertAll()
+  .catch(error => printError(error))
+  .finally(() => disconnectDatabase())
