@@ -21,7 +21,7 @@ h1 {
   margin-top: 10px;
 }
 
-#chart.error {
+.error {
   color: red;
 }
 
