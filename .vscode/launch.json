@@ -64,11 +64,32 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "convert",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/cov-convert",
+      "args": [
+        "data/data.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "serve",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/bin/cov-serve"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "start",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/cov-start"
     }
   ]
 }
