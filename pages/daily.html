@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Charts and tables for daily case statistics of the coronavirus COVID-19 globally and by country.">
+  <title>Daily Case Statistics of Virus COVID-19</title>
+  <link rel="stylesheet" href="https://unpkg.com/chartist@0.11.4/dist/chartist.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/chartist-plugin-tooltips@0.0.17/dist/chartist-plugin-tooltip.css">
+  <link rel="stylesheet" href="common.css">
+  <style type="text/less">
+    .ct-legend {
+      position: relative;
+      z-index: 10;
+      list-style: none;
+      text-align: center;
+
+      li {
+        position: relative;
+        padding-left: 23px;
+        margin-right: 10px;
+        margin-bottom: 3px;
+        cursor: pointer;
+        display: inline-block;
+
+        &:before {
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          left: 0;
+          content: '';
+          border: 3px solid transparent;
+          border-radius: 2px;
+        }
+
+        &:nth-child(1):before{
+          border-color: #d70206;
+          background-color: #d70206;
+        }    
+    
+        &:nth-child(2):before{
+          border-color: #f05b4f;
+          background-color: #f05b4f;
+        }
+    
+        &:nth-child(3):before{
+          border-color: #f4c63d;
+          background-color: #f4c63d;
+        }
+    
+        &:nth-child(4):before{
+          border-color: #d17905;
+          background-color: #d17905;
+        }
+    
+        &:nth-child(5):before{
+          border-color: #453d3f;
+          background-color: #453d3f;
+        }
+    
+        &:nth-child(6):before{
+          border-color: #59922b;
+          background-color: #59922b;
+        }
+    
+        &:nth-child(7):before{
+          border-color: #0544d3;
+          background-color: #0544d3;
+        }
+
+        &.inactive:before {
+          background-color: transparent;
+        }
+      }
+
+      &.ct-legend-inside {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Daily Case Statistics of Virus COVID-19</h1>
+  <label>
+    <span>Country:</span>
+    <select id="countries">
+      <option value="world">World</option>
+    </select>
+  </label>
+  <div id="chart"></div>
+  <script src="https://unpkg.com/less@3.11.1/dist/less.min.js"></script>
+  <script src="https://unpkg.com/chartist@0.11.4/dist/chartist.min.js"></script>
+  <script src="https://unpkg.com/chartist-plugin-legend@0.6.2/chartist-plugin-legend.js"></script>
+  <script src="https://unpkg.com/chartist-plugin-axistitle@0.0.7/dist/chartist-plugin-axistitle.min.js"></script>
+  <script src="https://unpkg.com/chartist-plugin-tooltips@0.0.17/dist/chartist-plugin-tooltip.min.js"></script>
+  <script src="https://unpkg.com/html5-history-router@1.0.4/lib/router.umd.js"></script>
+  <script src="common.js"></script>
+  <script>
+    fetchCountries()
+    refresh(false)
+    createRouter(() => {
+      if (updateCountryParameter()) {
+        refresh(false)
+      }
+    })
+    listenToCountries(refresh)
+
+    function refresh (pushState) {
+      let query = country ? `?country=${country[1]}` : ''
+      if (pushState !== false) {
+        updateLocation(query)
+      }
+      query += query ? '&' : '?'
+      query += `from=${from}&to=${to}&hour=any`
+      const url = country ? `/api/countries${query}` : `/api/world${query}`
+      fetchData(url, renderDailyChart)
+    }
+  </script>
+</body>
+</html>

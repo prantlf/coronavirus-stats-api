@@ -2,6 +2,7 @@
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
+    "**/__sapper__": true,
     "**/data/countries": true,
     "**/data/data.db": true,
     "**/data/data.json": true,

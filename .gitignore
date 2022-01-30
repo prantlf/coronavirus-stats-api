@@ -7,3 +7,4 @@ data/main.html
 data/world/
 node_modules
 npm-debug.log
+__sapper__
